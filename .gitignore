@@ -21,3 +21,5 @@ rad.json
 #Test results file
 TestResults.xml
 .Rproj.user
+.DS_Store
+**/.DS_Store
