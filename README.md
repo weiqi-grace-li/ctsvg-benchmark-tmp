@@ -11,7 +11,8 @@ This repository provides pipeline to reproduce all results in paper **"Benchmark
 
 ## Repository Structure 
 This repository is organized into `src/` (core utility functions and class definitions) and `workflow/` (numbered execution scripts from 01 to 04). 
-> **Note**: To facilitate immediate testing, a **processed Breast Cancer realistic dataset** is included directly in this repository. You can run the realistic and decomposed benchmarks for this tissue type without downloading external files.
+
+> **Note**: The Breast Cancer realistic dataset is pre-packaged in this repository for an immediate **Quick Start**..
 
 <div align="center">
 
@@ -21,12 +22,13 @@ This repository is organized into `src/` (core utility functions and class defin
       <th rowspan="2">Result Type</th>
       <th colspan="2">Data Option: From Scratch</th>
       <th colspan="1">Data Option: From Processed</th>
-      <th rowspan="2">Result Workflow<br></th>
+      <th colspan="1">Result<br></th>
     </tr>
     <tr>
-      <th>Data Requirement</th>
-      <th>Data Workflow</th>
-      <th>Direct Download</th>
+      <th>Raw</th>
+      <th>Workflow</th>
+      <th>Download</th>
+      <th>Workflow</th>
     </tr>
   </thead>
   <tbody>
@@ -34,26 +36,26 @@ This repository is organized into `src/` (core utility functions and class defin
       <td><b>Idealized</b></td>
       <td>None</td>
       <td>None</td>
-      <td>None (Internal)</td>
+      <td>None</td>
       <td><code>03_A</code></td>
     </tr>
     <tr>
       <td><b>Realistic</b></td>
-      <td>Raw Xenium</td>
-      <td><code>01_A</code> & <code>02_A</code></td>
+      <td>Xenium</td>
+      <td><code>01_A</code>, <code>02_A</code></td>
       <td><code>data/processed/realistic/</code></td>
       <td><code>03_B</code></td>
     </tr>
     <tr>
       <td><b>Decomposed</b></td>
-      <td>Realistic Simulations</td>
-      <td>None</td>
-      <td>None</td>
+      <td>Xenium</td>
+      <td><code>01_A</code>, <code>02_A</code></td>
+      <td><code>data/processed/realistic/</code></td>
       <td><code>03_C</code></td>
     </tr>
     <tr>
       <td><b>Real Data</b></td>
-      <td>Raw Visium + scRNA</td>
+      <td>Visium, scRNA</td>
       <td><code>01_B</code></td>
       <td><code>data/processed/real/</code></td>
       <td><code>03_D</code></td>
@@ -62,8 +64,6 @@ This repository is organized into `src/` (core utility functions and class defin
 </table>
 
 </div>
-
-> \* **Note**: The Breast Cancer realistic/decomposed data is pre-packaged in this repository for an immediate **Quick Start**.
 
 - **Idealized simulations (`workflow/03_A`)**: *no external data required*\
   Generated purely based on user-defined parameters and assumptions.
