@@ -1,7 +1,7 @@
 # ctsvg-benchmark-tmp (Work in Progress) 
 Link to the paper: https://www.biorxiv.org/content/10.1101/2025.11.26.690782v1
 
-Link to the data: (Zenodo - coming soon) 
+Link to the data: (Zenodo - coming soon). The plan is to have `data/` and `result/` folders, where `data/` contains simulated realistic datasets and preprocessed real datasets and `result/` stores ctSVG detection output. 
 
 ## Overview  
 This repository provides pipeline to reproduce all results in paper **"Benchmarking Cell-Type-Specific Spatially Variable Gene Detection Methods Using a Realistic and Decomposable Simulation Framework"**. We propose an integrated evaluation framework that combines: 
@@ -68,11 +68,11 @@ This repository is organized into `src/` (core utility functions and class defin
 - **Idealized simulations (`workflow/03_A`)**: *no external data required*\
   Generated purely based on user-defined parameters and assumptions.
 - **Realistic simulations (`workflow/03_B`)**: *require raw source data*\
-  Uses real Xenium datasets as raw sources and form realistic datasets through scDesign3 and ground truth ctSVG selection steps. The preprocessing is done via `workflow/01_A`, and generation of simulation is done via`workflow/02_A`. 
+  Uses real Xenium datasets as raw sources and form realistic datasets through scDesign3 and ground truth ctSVG selection steps. The preprocessing is done via `workflow/01_A`, and generation of simulation is done via`workflow/02_A`. Users can bypass the preprocessing and generation by directly download simulated realistic datasets from `data/processed/realistic`.  In addition, the repository includes a breast cancer realistic dataset for quick start. 
 - **Decomposed simulations (`workflow/03_C`)**: *require realistic datasets*\
   Takes realistic datasets as reference and generates decomposed datasets with various combinations of "realness" components (i-vi) based on realistic simulation.
 - **Real data (`workflow/03_D`)**: *require raw source data*\
-  Uses real Visium datasets and reference single-cell datasets used for cell-type deconvolution as raw sources and form preprocessed datasets. The reprocessing is done via `workflow/01_B`.
+  Uses real Visium datasets and reference single-cell datasets used for cell-type deconvolution as raw sources and form preprocessed datasets. The reprocessing is done via `workflow/01_B`. Users can bypass the preprocessing by directly download simulated realistic datasets from `data/processed/real/`.
 
 ## Usage Scenarios 
 This accompanying pipeline is designed with multiple entry points, allowing users to rerun ctSVG detection methods and reproduce results with different levels of data dependency. Users may: 
