@@ -10,7 +10,7 @@ This repository provides pipeline to reproduce all results in paper **"Benchmark
 3. Decomposition-based diagnostic analysis (decompose biological complexity to interpretable components)
 
 ## Repository Structure 
-This repository is organized into `src/` (core utility functions and class definitions) and `workflow/` (numbered execution scripts from 01 to 04). 
+This repository is organized into `src/` (core utility functions and class definitions) and numbered execution scripts from 01 to 04. 
 
 > **Note**: The Breast Cancer realistic dataset is pre-packaged in this repository for an immediate **Quick Start**..
 
