@@ -737,8 +737,9 @@ scdesign3_fit_raw = function(data_ori, save_path_raw, save_path_dev, seed = 42, 
     )
     
     for (gene in rownames(dev_table)){
-      if (!(is.na(cell_marginal[[gene]]$fit)[1])){
-        dev = summary(cell_marginal[[gene]]$fit)$dev.expl
+      gene_fit = cell_marginal[[gene]]$fit
+      if (!is.null(gene_fit) && !(is.na(gene_fit)[1])){
+        dev = summary(gene_fit)$dev.expl
       } else{
         dev = 0
       }
