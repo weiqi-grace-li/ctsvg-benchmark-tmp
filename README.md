@@ -7,7 +7,6 @@ Code and data for all simulation studies and real-data analyses reported in the 
 > † Corresponding authors: [xinzhou.ge@oregonstate.edu](mailto:xinzhou.ge@oregonstate.edu), [yuan.jiang@oregonstate.edu](mailto:yuan.jiang@oregonstate.edu)
 >
 > Preprint: [bioRxiv 10.1101/2025.11.26.690782](https://www.biorxiv.org/content/10.1101/2025.11.26.690782v1)
-> Status: under review at *Nature Communications*
 
 ## Summary
 
