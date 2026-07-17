@@ -131,7 +131,7 @@ for (name in names(synthetic_clean)) {
 # -------------------------------------------------------
 # Run all methods on each dataset
 # -------------------------------------------------------
-for name in names(count_data_list) {
+for (name in names(count_data_list)) {
   message(paste0("=== Running dataset: ", name, " ==="))
   run_all_tests(
     sp_count    = count_data_list[[name]],
