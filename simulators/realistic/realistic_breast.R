@@ -14,7 +14,7 @@ save_base_dir = "./data/realistic_packaged/breast/"
 scdesign_raw_path = paste0(save_base_dir, "scdesign_raw.RData")
 scdesign_dev_path = paste0(save_base_dir, "scdesign_dev.RData")
 
-ncores = 36
+ncores = 10
 seed = 42
 ### --------------------------------------------------------------------- ###
 ### STEP 1: build breast_small_ori from preprocessed data ###

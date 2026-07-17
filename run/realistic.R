@@ -7,7 +7,7 @@ library(Triangulation)
 source("./util.R")
 source("./simulators/realistic/pseudo_spot_simulator.R")
 
-ncores = 20
+ncores = 1
 seeds = c(42) # one seed for demonstration 
 
 # data_names = c("breast", "ovarian", "lymph")

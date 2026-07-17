@@ -22,7 +22,7 @@ filter_types <- c("filter1")
 
 
 # --- hardware ---
-ncores       <- 20
+ncores       <- 1
 
 # --- time limit per method call ---
 timeout_sec  <- 48*3600  

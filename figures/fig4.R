@@ -5,6 +5,9 @@ library(dplyr)
 library(ggplot2)
 library(ggh4x)
 library(tidyverse)
+library(patchwork)
+library(ggpubr)
+library(paletteer)
 
 ## ---- Helpers ------------------------------------------------------------
 
@@ -230,10 +233,6 @@ ep_plot
 fdp_plot
 
 ## ---- Decompositions figure (decompositions.pdf) -------------------------
-
-library(patchwork)
-library(ggpubr)
-library(paletteer)
 
 #### Cell-type power panel
 

@@ -10,7 +10,7 @@ source("./simulators/idealized/celina_simulator_null.R")
 source("./simulators/idealized/stance_simulator_alt.R")
 source("./simulators/idealized/stance_simulator_1alt.R")
 
-ncores = 40
+ncores = 1
 
 seeds = c(42) # one seed for demonstration 
 
