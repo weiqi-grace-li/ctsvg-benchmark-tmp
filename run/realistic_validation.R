@@ -112,7 +112,7 @@ sim_obj <- list(
 spvc_tri <- NULL
 if (any(c("spvc") %in% run_method)) {
   library(Triangulation)
-  load(paste0(sim_save_dir))
+  load(paste0(sim_save_dir, "validation_boundary.RData"))
   spvc_tri <- TriMesh(breast_boundary, n = 2)
 }
 
