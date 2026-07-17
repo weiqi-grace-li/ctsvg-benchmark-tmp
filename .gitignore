@@ -69,3 +69,7 @@ data/**
 !data/realistic_raw/fig3/ovarian_cells.csv
 !data/realistic_raw/lymph/.gitkeep
 !data/realistic_raw/ovarian/.gitkeep
+
+# Python temp files from notebook/script runs in the preprocessing pipeline
+simulators/realistic/preprocessing/**/__pycache__/
+simulators/realistic/preprocessing/**/.ipynb_checkpoints/
