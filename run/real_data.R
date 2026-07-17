@@ -22,7 +22,7 @@ filter_types <- c("filter1")
 
 
 # --- hardware ---
-ncores       <- 40
+ncores       <- 20
 
 # --- time limit per method call ---
 timeout_sec  <- 48*3600  
@@ -44,10 +44,13 @@ for (i in seq_along(data_names)) {
   message(sprintf("=== %s / %s  [sim_name: %s] ===",
                   data_names[i], filter_types[i], cfg$sim_name))
 
-  load(cfg$data_path)     # loads 'filter1' or 'filter2' into global env
-  load(cfg$tr_cell_path)  # loads 'Tr.cell' into global env
+  data_env  = new.env()
+  data_obj  = load(cfg$data_path, envir = data_env)     # actual object name varies by dataset (e.g. 'breast', not 'filter1')
+  dat       = get(data_obj[1], envir = data_env)
 
-  dat = get(filter_types[i])
+  tr_env    = new.env()
+  tr_obj    = load(cfg$tr_cell_path, envir = tr_env)    # detect actual object name rather than assuming 'Tr.cell'
+  Tr.cell   = get(tr_obj[1], envir = tr_env)
 
   run_all_tests(
     sp_count     = as.matrix(dat$spot_counts),
