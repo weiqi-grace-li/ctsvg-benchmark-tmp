@@ -4,6 +4,8 @@ library(ggplot2)
 library(ggforce)
 library(patchwork)
 
+# This simulation follows the simulation description in CELINA 
+
 celina_simulator_alt <- setRefClass("celina_simulator_alt",
                                      fields = list(
                                        dispersion = "numeric",

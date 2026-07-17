@@ -6,6 +6,7 @@ library(ggplot2)
 library(ggforce)
 library(patchwork)
 
+# This simulation follows the simulation description in STANCE
 
 stance_simulator_1alt <- setRefClass("stance_simulator_1alt",
                                  fields = list(

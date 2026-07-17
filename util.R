@@ -1352,3 +1352,32 @@ get_real_data_config = function(data_name, filter_type) {
 
   configs[[data_name]][[filter_type]]
 }
+
+
+source("./simulators/celina_simulator_alt.R")
+source("./simulators/celina_simulator_null.R")
+source("./simulators/stance_simulator_1alt.R")
+source("./simulators/stance_simulator_alt.R")
+
+run_simulator = function(name, seed, phi = 0.95, scene = "I", pattern = "streak", control_UMI = FALSE){
+  if (name == "stance_simulator_alt"){
+    temp_sim = stance_simulator_alt$new(dispersion = phi, seed = seed, cell_type_proportion = c(0.1, 0.3, 0.6))
+  } else if (name == "stance_simulator_1alt"){
+    temp_sim = stance_simulator_1alt$new(dispersion = phi, seed = seed)
+  } else if (name == "celina_simulator_alt"){
+    if (!control_UMI){
+      fold_change = c(ifelse(pattern == "hotspot", 2, 1.5), ifelse(pattern == "hotspot", 0.4, 0.5))
+    } else{
+      fold_change = c(ifelse(pattern == "hotspot", 47/36, 1.5), ifelse(pattern == "hotspot", 1/18, 0.5))
+    }
+    pi = ifelse(pattern == "hotspot", 0.4, ifelse(pattern == "streak", 0.25, 0.15))
+    temp_sim = celina_simulator_alt$new(
+      dispersion = 0.95, seed = seed, scenario = scene, resolution = "spot", pattern_type = pattern,
+      pi = pi, fold_change_high = fold_change[1], fold_change_low = fold_change[2]
+    )
+  } else if (name == "celina_simulator_null"){
+    temp_sim = celina_simulator_null$new(dispersion = 0.95, seed= seed, scenario = scene, resolution = "spot")
+  }
+  return(temp_sim)
+}
+
