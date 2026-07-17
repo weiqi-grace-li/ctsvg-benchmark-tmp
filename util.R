@@ -1354,10 +1354,10 @@ get_real_data_config = function(data_name, filter_type) {
 }
 
 
-source("./simulators/celina_simulator_alt.R")
-source("./simulators/celina_simulator_null.R")
-source("./simulators/stance_simulator_1alt.R")
-source("./simulators/stance_simulator_alt.R")
+source("./simulators/idealized/celina_simulator_alt.R")
+source("./simulators/idealized/celina_simulator_null.R")
+source("./simulators/idealized/stance_simulator_1alt.R")
+source("./simulators/idealized/stance_simulator_alt.R")
 
 run_simulator = function(name, seed, phi = 0.95, scene = "I", pattern = "streak", control_UMI = FALSE){
   if (name == "stance_simulator_alt"){
