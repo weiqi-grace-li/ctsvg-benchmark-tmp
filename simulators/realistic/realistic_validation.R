@@ -14,7 +14,7 @@ save_base_dir = "./data/realistic_packaged/validation/"
 scdesign_raw_path = paste0(save_base_dir, "scdesign_raw.RData")
 scdesign_dev_path = paste0(save_base_dir, "scdesign_dev.RData")
 
-ncores = 256
+ncores = 50
 
 #### ---------------------------------------- #####
 #### Assemble original list  and handle data  #####
