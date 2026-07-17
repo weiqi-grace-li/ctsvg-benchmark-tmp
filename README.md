@@ -2,8 +2,8 @@
 
 Code, example data, and analysis workflows accompanying:
 
-> Preprint: [bioRxiv 10.1101/2025.11.26.690782](https://www.biorxiv.org/content/10.1101/2025.11.26.690782v1) \
-> Zenodo: 
+> **Preprint:** [bioRxiv 10.1101/2025.11.26.690782](https://www.biorxiv.org/content/10.1101/2025.11.26.690782v1)  
+> **Data and code:** [Zenodo archive preview](https://zenodo.org/records/21405877?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6Ijk1OTBiNTRmLTNkYTItNDM2OC05M2U2LWRhN2ZjOWUzMTc1YyIsImRhdGEiOnt9LCJyYW5kb20iOiJmMjljNWRlNzEwNDQ3ZTk1NTEyMjMxYTdhNTRjOTEzYSJ9.qEuq9Z-UuWRAGBkrymTtV3c89YNzCSldUhN-2BukXNCjh26nfGUcbckOibW93ienJZTP3c5uXH9ESZ3rLN-nYQ)
 
 ## Overview
 
