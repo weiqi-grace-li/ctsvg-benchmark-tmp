@@ -8,10 +8,8 @@ source("./util.R")
 source("./simulators/realistic/pseudo_spot_simulator.R")
 source("./simulators/decomposed/scDesign_decompose.R")
 
-ncores = 40
-set.seed(253)
-seeds = c(42, sample(1:1000, 5, replace = FALSE)) # 42, 734, 60, 67, 798, 419
-seeds = seeds[1:5]
+ncores = 24
+seeds = c(42) # one seed for demonstration 
 
 # breast datasets are included in this repo 
 # to run decomposed simulation on the other datasets 

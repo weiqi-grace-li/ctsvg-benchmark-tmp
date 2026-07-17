@@ -12,9 +12,7 @@ source("./simulators/idealized/stance_simulator_1alt.R")
 
 ncores = 40
 
-set.seed(253)
-seeds = c(42, sample(1:1000, 5, replace = FALSE)) # 42, 734, 60, 67, 798
-seeds = seeds[1:5]
+seeds = c(42) # one seed for demonstration 
 
 # run_method = c("celina", "stance", "spvc", "ctsv", "cside", "mmm") # uncomment to run all methods 
 run_method = c("celina")
