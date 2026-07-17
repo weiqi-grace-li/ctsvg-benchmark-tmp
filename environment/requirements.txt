@@ -1,8 +1,7 @@
 # Python dependencies for simulators/realistic/preprocessing/
 # Extracted from actual import statements in xenium.py, companion_functions.py,
-# pseudo_util.py, and breast_cancer_demonstration.ipynb. Versions are not pinned —
-# run `pip freeze > requirements-lock.txt` in a working environment and commit that
-# alongside this file once the pipeline has been verified to run end-to-end here.
+# pseudo_util.py, and breast_cancer_demonstration.ipynb. Versions are intentionally
+# unpinned here; see requirements-lock.txt for the exact, verified resolved set.
 
 numpy
 pandas
