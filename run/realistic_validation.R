@@ -2,7 +2,7 @@ library(Matrix)
 
 source("./util.R")
 
-ncores     <- 48
+ncores     <- 50
 run_method <- c("celina", "stance", "spvc", "ctsv", "cside", "mmm")
 save_dir <- paste0("./data/detection_results/realistic_validation/")
 seeds        <- c(74, 153, 321, 561, 997)
@@ -112,7 +112,7 @@ sim_obj <- list(
 spvc_tri <- NULL
 if (any(c("spvc", "spvc-gam") %in% run_method)) {
   library(Triangulation)
-  load(paste0(path, "breast_boundary.RData"))
+  load(paste0(path, "validation_boundary.RData"))
   spvc_tri <- TriMesh(breast_boundary, n = 2)
 }
 
