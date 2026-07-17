@@ -27,7 +27,7 @@ The repository supports three levels of reproduction:
 
 
 <p align="center">
-  <img src="docs/analysis_pipelines.pdf" alt="Workflow from raw data through preprocessing, packaged datasets, and ct-SVG detection" width="100%">
+  <img src="docs/analysis_pipelines.png" alt="Workflow from raw data through preprocessing, packaged datasets, and ct-SVG detection" width="100%">
 </p>
 
 
