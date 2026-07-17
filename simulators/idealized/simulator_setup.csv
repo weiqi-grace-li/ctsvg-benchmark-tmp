@@ -1,0 +1,21 @@
+sim_name,phi,scene,pattern ,pattern_plot,scenario_plot
+stance_simulator_alt,0.7,,,hotspot,1
+stance_simulator_alt,1.5,,,hotspot,1
+stance_simulator_1alt,0.7,,,,2
+stance_simulator_1alt,1.5,,,,2
+celina_simulator_alt,,I,hotspot,hotspot,3
+celina_simulator_alt,,II,hotspot,hotspot,4
+celina_simulator_alt,,III,hotspot,hotspot,5
+celina_simulator_alt,,IV,hotspot,hotspot,6
+celina_simulator_alt,,I,streak,streak,3
+celina_simulator_alt,,II,streak,streak,4
+celina_simulator_alt,,III,streak,streak,5
+celina_simulator_alt,,IV,streak,streak,6
+celina_simulator_alt,,I,gradient,gradient,3
+celina_simulator_alt,,II,gradient,gradient,4
+celina_simulator_alt,,III,gradient,gradient,5
+celina_simulator_alt,,IV,gradient,gradient,6
+celina_simulator_null,,I,,,3
+celina_simulator_null,,II,,,4
+celina_simulator_null,,III,,,5
+celina_simulator_null,,IV,,,6

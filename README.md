@@ -1,82 +1,101 @@
-# ctsvg-benchmark-tmp (Work in Progress) 
-Link to the paper: https://www.biorxiv.org/content/10.1101/2025.11.26.690782v1
+# ctSVG benchmark — repository structure
 
-Link to the data: (Zenodo - coming soon). The plan is to have `data/` and `result/` folders, where `data/` contains simulated realistic datasets and preprocessed real datasets and `result/` stores ctSVG detection output. 
+This repo benchmarks six spatially-variable-gene (SVG) detection methods — CELINA, spVC,
+C-SIDE, MMM, CTSV, STANCE — across idealized simulations, scDesign3-based realistic
+simulations (Xenium-derived breast/ovarian/lymph, plus a Visium-validated breast dataset),
+decomposed simulations, scalability tests, and five real datasets (breast, DLPFC/brain, kidney
+core, kidney inter, lung).
 
-## Overview  
-This repository provides pipeline to reproduce all results in paper **"Benchmarking Cell-Type-Specific Spatially Variable Gene Detection Methods Using a Realistic and Decomposable Simulation Framework"**. We propose an integrated evaluation framework that combines: 
-1. Idealized simulations (baseline)
-2. Xenium-based realistic simulations (biological complexity)
-3. Decomposition-based diagnostic analysis (decompose biological complexity to interpretable components)
+This repo is self-contained: every `source()` / `read.csv()` / `load()` / `save()` path inside
+it resolves to somewhere inside this folder, assuming scripts are run with this folder itself
+as the working directory. There are no references to sibling folders outside this repo.
 
-## Repository Structure 
-This repository is organized into `src/` (core utility functions and class definitions) and numbered execution scripts from 01 to 04. 
+## Layout
 
-> **Note**: The Breast Cancer realistic dataset is pre-packaged in this repository for an immediate **Quick Start**..
+```
+util.R                per-simulation-type config, dataset builders, method dispatch
+                        (run_all_tests()), and evaluation/aggregation (collect_details(),
+                        analyze_result(), write_sheet()) — one file, deliberately not split up
 
-<div align="center">
+method_wrappers/      per-method R wrappers called by util.R's run_all_tests():
+                        CELINA_util.R  CSIDE_util.R  CTSV_util.R  spvc_util.R
+                        mmm_util.R  stance_util.R  (the 6 benchmarked methods)
+                        RCTD_util.R  (deconvolution helper used in real-data prep)
 
-<table>
-  <thead>
-    <tr>
-      <th rowspan="2">Result Type</th>
-      <th colspan="2">Data Option: From Scratch</th>
-      <th colspan="1">Data Option: From Processed</th>
-      <th colspan="1">Result<br></th>
-    </tr>
-    <tr>
-      <th>Raw</th>
-      <th>Workflow</th>
-      <th>Download</th>
-      <th>Workflow</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Idealized</b></td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td><code>03_A</code></td>
-    </tr>
-    <tr>
-      <td><b>Realistic</b></td>
-      <td>Xenium</td>
-      <td><code>01_A</code>, <code>02_A</code></td>
-      <td><code>data/processed/realistic/</code></td>
-      <td><code>03_B</code></td>
-    </tr>
-    <tr>
-      <td><b>Decomposed</b></td>
-      <td>Xenium</td>
-      <td><code>01_A</code>, <code>02_A</code></td>
-      <td><code>data/processed/realistic/</code></td>
-      <td><code>03_C</code></td>
-    </tr>
-    <tr>
-      <td><b>Real Data</b></td>
-      <td>Visium, scRNA</td>
-      <td><code>01_B</code></td>
-      <td><code>data/processed/real/</code></td>
-      <td><code>03_D</code></td>
-    </tr>
-  </tbody>
-</table>
+simulators/
+  idealized/           the 4 idealized simulator scenario classes + simulator_setup.csv
+  realistic/           realistic_breast.R  realistic_ovarian.R  realistic_lymph.R
+                        realistic_validation.R  (scDesign3 fitting + ctSVG gene selection,
+                        one script per tissue)  pseudo_spot_simulator.R
+    preprocessing/      Python: xenium.py, companion_functions.py, pseudo_util.py,
+                        preprocess_realistic.ipynb, preprocess_realistic_validation.ipynb
+  decomposed/          scDesign_decompose.R
+  scalability/         scalable_sim.R
 
-</div>
+real_data/             breast.R  dlpfc.R  kidney_core.R  kidney_inter.R  lung.R
+                        (dlpfc.R produces the "brain" results; kidney_core/kidney_inter
+                        share one raw input but package + report separately)
 
-- **Idealized simulations (`03_A`)**: *no external data required*\
-  Generated purely based on user-defined parameters and assumptions.
-- **Realistic simulations (`03_B`)**: *require raw source data*\
-  Uses real Xenium datasets as raw sources and form realistic datasets through scDesign3 and ground truth ctSVG selection steps. The preprocessing is done via `01_A`, and generation of simulation is done via`02_A`. Users can bypass the preprocessing and generation by directly download simulated realistic datasets from `data/processed/realistic`.  In addition, the repository includes a breast cancer realistic dataset for quick start. 
-- **Decomposed simulations (`03_C`)**: *require realistic datasets*\
-  Takes realistic datasets as reference and generates decomposed datasets with various combinations of "realness" components (i-vi) based on realistic simulation.
-- **Real data (`03_D`)**: *require raw source data*\
-  Uses real Visium datasets and reference single-cell datasets used for cell-type deconvolution as raw sources and form preprocessed datasets. The reprocessing is done via `01_B`. Users can bypass the preprocessing by directly download simulated realistic datasets from `data/processed/real/`.
+run/                   execution/orchestration scripts, one per simulation category:
+                        idealized.R  realistic.R  realistic_validation.R  decomposed.R
+                        scalability.R  real_data.R
 
-## Usage Scenarios 
-This accompanying pipeline is designed with multiple entry points, allowing users to rerun ctSVG detection methods and reproduce results with different levels of data dependency. Users may: 
-- (Quick Start) run detection methods on all idealized simulations, and breast cancer realistic simulation and decomposed simulations through breast realistic dataset included in the repository; 
-- download processed datasets, run detection methods;
-- download raw data from sources, regenerate realistic simulations and preprocessed real data, then run detection methods;
-- bypass running detection methods and reproduce figures from precomputed results.
+figures/               fig1.R ... fig6.R, reading from data/ and writing to figures/output/
+                        + the small aggregated CSVs fig4.R reads directly: decomposition_dim.csv
+
+data/                  see "The data/ folder" below
+
+environment/           requirements.txt (Python, package names only)
+```
+
+## The `data/` folder
+
+`data/` holds everything the pipeline reads and writes, organized by stage:
+
+```
+data/
+  real_raw/                  raw inputs for real_data/*.R (not committed — large; populate
+                              yourself before running real_data/*.R)
+    breast/  kidney/  lung/  (kidney/ is shared by kidney_core.R and kidney_inter.R)
+
+  real_packaged/              output of real_data/*.R: filter1.RData, filter2.RData (where
+                              applicable), Tr.cell.RData, per dataset
+    lung/  kidney_core/  kidney_inter/  breast/  dlpfc/
+
+  realistic_raw/              raw Xenium/Visium bundles for the preprocessing notebooks
+                              (not committed — large; populate yourself before running
+                              simulators/realistic/preprocessing/*.ipynb)
+    breast/  visium/  xenium-rep1/  xenium-rep2/  Cell_Barcode_Type_Matrices.xlsx
+    ovarian/                   single Xenium bundle (no Visium/replicate-2/cell-type excel)
+    lymph/                     single Xenium bundle
+    fig3/                       breast_cells.csv, ovarian_cells.csv, lymph_cells.csv — the
+                              per-cell coordinate + cell-type tables fig3.R's cell-type
+                              scatter panels read directly
+
+  realistic_preprocessed/     output of simulators/realistic/preprocessing/*.ipynb, input to
+                              simulators/realistic/realistic_*.R
+    breast/  ovarian/  lymph/  validation/
+
+  realistic_packaged/         output of simulators/realistic/realistic_*.R: breast_small_ori /
+                              lymph_small_ori / etc., breast_boundary.RData, data_new_v3_<seed>.RData
+                              (5 seeds per tissue), extreme_genes_over300.RData, special_genes.RData
+    breast/  ovarian/  lymph/  validation/
+
+  detection_results/          output of run/*.R (what fig2.R/fig3.R/fig5.R read back)
+    idealized/  realistic/  decomposed/  scalability/  realistic_validation/  real_data/
+```
+
+`real_raw/`, `realistic_raw/{breast,ovarian,lymph}` (excluding `fig3/`), and most of
+`realistic_packaged/`/`realistic_preprocessed/` beyond `breast/` are scaffolded as empty
+directories — they hold large data that isn't committed here. Run the corresponding
+`simulators/realistic/preprocessing/*.ipynb` notebooks and `simulators/realistic/realistic_*.R`
+/ `real_data/*.R` scripts to populate them; `detection_results/` fills in as you run `run/*.R`.
+
+## Not yet added
+
+- **`LICENSE`** — no license file has been created; choose one and add it before publishing.
+- **R dependency lockfile** — `environment/requirements.txt` covers the Python preprocessing
+  imports (package names only, unpinned). No `renv.lock` has been generated, since that
+  requires actually running the R pipeline in a controlled environment to capture real package
+  versions. Recommend running `renv::init()` / `renv::snapshot()` once the pipeline has been
+  run end-to-end at least once.
