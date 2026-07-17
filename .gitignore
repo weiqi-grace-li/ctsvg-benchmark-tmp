@@ -81,6 +81,8 @@ figures/output/**
 !figures/output/fig4/.gitkeep
 !figures/output/fig5/.gitkeep
 
+Rplots.pdf
+
 # Python temp files from notebook/script runs in the preprocessing pipeline
 simulators/realistic/preprocessing/**/__pycache__/
 simulators/realistic/preprocessing/**/.ipynb_checkpoints/
