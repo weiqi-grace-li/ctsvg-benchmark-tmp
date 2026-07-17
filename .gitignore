@@ -1,25 +1,71 @@
 ### AL ###
 #Template for AL projects for Dynamics 365 Business Central
-#launch.json folder
-.vscode/
-#Cache folder
-.alcache/
-#Symbols folder
-.alpackages/
-#Snapshots folder
-.snapshots/
-#Testing Output folder
-.output/
-#Extension App-file
-*.app
-#Rapid Application Development File
-rad.json
-#Translation Base-file
-*.g.xlf
-#License-file
-*.flf
-#Test results file
-TestResults.xml
+
+
+
 .Rproj.user
 .DS_Store
 **/.DS_Store
+
+# Ignore everything under data/ by default; new files (e.g. pipeline outputs,
+# raw downloads) added later will be ignored automatically. Files already
+# present in the repo are explicitly whitelisted below.
+data/**
+!data/**/
+
+!data/detection_results/decomposed/.gitkeep
+!data/detection_results/idealized/.gitkeep
+!data/detection_results/real_data/.gitkeep
+!data/detection_results/realistic/.gitkeep
+!data/detection_results/realistic_validation/.gitkeep
+!data/detection_results/scalability/.gitkeep
+!data/real_packaged/breast/Tr.cell.RData
+!data/real_packaged/breast/filter1.RData
+!data/real_packaged/dlpfc/.gitkeep
+!data/real_packaged/kidney_core/.gitkeep
+!data/real_packaged/kidney_inter/.gitkeep
+!data/real_packaged/lung/.gitkeep
+!data/real_raw/breast/.gitkeep
+!data/real_raw/kidney/.gitkeep
+!data/real_raw/lung/.gitkeep
+!data/realistic_packaged/breast/breast_boundary.RData
+!data/realistic_packaged/breast/breast_small_ori.RData
+!data/realistic_packaged/breast/data_new_v3_42.RData
+!data/realistic_packaged/breast/extreme_genes_over300.RData
+!data/realistic_packaged/breast/special_genes.RData
+!data/realistic_packaged/lymph/.gitkeep
+!data/realistic_packaged/ovarian/.gitkeep
+!data/realistic_packaged/validation/.gitkeep
+!data/realistic_preprocessed/breast/cell_counts_10x/barcodes.tsv.gz
+!data/realistic_preprocessed/breast/cell_counts_10x/features.tsv.gz
+!data/realistic_preprocessed/breast/cell_counts_10x/matrix.mtx.gz
+!data/realistic_preprocessed/breast/cell_fallback.tsv
+!data/realistic_preprocessed/breast/cell_meta.parquet
+!data/realistic_preprocessed/breast/cell_spot_prop.cols.tsv.gz
+!data/realistic_preprocessed/breast/cell_spot_prop.mtx.gz
+!data/realistic_preprocessed/breast/cell_spot_prop.rows.tsv.gz
+!data/realistic_preprocessed/breast/gene_dropout_frac.cols.tsv.gz
+!data/realistic_preprocessed/breast/gene_dropout_frac.mtx.gz
+!data/realistic_preprocessed/breast/gene_dropout_frac.rows.tsv.gz
+!data/realistic_preprocessed/breast/gene_keep_frac.cols.tsv.gz
+!data/realistic_preprocessed/breast/gene_keep_frac.mtx.gz
+!data/realistic_preprocessed/breast/gene_keep_frac.rows.tsv.gz
+!data/realistic_preprocessed/breast/mask_fallback.cols.tsv.gz
+!data/realistic_preprocessed/breast/mask_fallback.mtx.gz
+!data/realistic_preprocessed/breast/mask_fallback.rows.tsv.gz
+!data/realistic_preprocessed/breast/mask_keep.cols.tsv.gz
+!data/realistic_preprocessed/breast/mask_keep.mtx.gz
+!data/realistic_preprocessed/breast/mask_keep.rows.tsv.gz
+!data/realistic_preprocessed/breast/pseudo_count.parquet
+!data/realistic_preprocessed/breast/pseudo_meta.parquet
+!data/realistic_preprocessed/lymph/.gitkeep
+!data/realistic_preprocessed/ovarian/.gitkeep
+!data/realistic_preprocessed/validation/.gitkeep
+!data/realistic_raw/breast/visium/.gitkeep
+!data/realistic_raw/breast/xenium-rep1/.gitkeep
+!data/realistic_raw/breast/xenium-rep2/.gitkeep
+!data/realistic_raw/fig3/breast_cells.csv
+!data/realistic_raw/fig3/lymph_cells.csv
+!data/realistic_raw/fig3/ovarian_cells.csv
+!data/realistic_raw/lymph/.gitkeep
+!data/realistic_raw/ovarian/.gitkeep
