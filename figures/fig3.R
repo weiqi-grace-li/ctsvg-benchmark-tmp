@@ -14,8 +14,6 @@ path = "./data/detection_results/realistic_validation/"
 files = c(
   "celina.xlsx",
   "stance.xlsx",
-  # "cside.csv",
-  # "spvc.csv",
   "ctsv.csv",
   "cside.csv",
   "spvc.csv",

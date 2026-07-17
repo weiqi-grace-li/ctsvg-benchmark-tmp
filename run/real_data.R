@@ -14,6 +14,9 @@ source("./util.R")
 # valid data_names : "lung", "kidney_core", "kidney_inter", "breast", "brain"
 # valid filter_types: "filter1", "filter2"  (breast has filter1 only)
 
+# processed breast data is included in the repo
+# make you have either processed the other real data or 
+# downloaded processed real data to run them 
 data_names   <- c("breast")
 filter_types <- c("filter1")
 
@@ -26,7 +29,8 @@ timeout_sec  <- 48*3600
 
 # --- which methods to run ---
 # options: "celina", "stance", "spvc", "ctsv", "cside", "mmm"
-run_method   <- c("celina", "stance", "spvc", "ctsv", "cside", "mmm")
+# run_method   <- c("celina", "stance", "spvc", "ctsv", "cside", "mmm") # uncomment to run all methods 
+run_method = c("celina")
 
 # --- STANCE-specific threshold ---
 utsvg_thres  <- 0.01   # use 0.01 for filter2 runs
@@ -57,7 +61,7 @@ for (i in seq_along(data_names)) {
     sim_obj      = dat,
     ncores       = ncores,
     run_method   = run_method,
-    # utsvg_thres  = utsvg_thres,
+    utsvg_thres  = utsvg_thres,
     timeout_sec  = timeout_sec
   )
 }

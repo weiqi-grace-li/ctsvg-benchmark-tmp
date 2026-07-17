@@ -5,7 +5,10 @@ library(Triangulation)
 seed         <- 42
 ncores       <- 16
 ncores_cside <- 16
-run_method  <- c("ctsv", "stance", "celina", "spvc", "cside", "mmm")
+
+# run_method  <- c("ctsv", "stance", "celina", "spvc", "cside", "mmm") # uncomment to run all methods 
+run_method = c("celina")
+
 save_dir     <- "./data/detection_results/scalability/"
 
 cside_gene_cutoff_reg <- 5e-5

@@ -12,8 +12,15 @@ ncores = 40
 set.seed(253)
 seeds = c(42, sample(1:1000, 5, replace = FALSE)) # 42, 734, 60, 67, 798, 419
 seeds = seeds[1:5]
+
+# breast datasets are included in this repo 
+# to run decomposed simulation on the other datasets 
+# make sure you either process and package them or 
+# download packaged data from zenodo 
 data_names = c("breast")
-run_method <- c("celina", "stance", "spvc", "ctsv", "cside", "mmm")
+
+# run_method <- c("celina", "stance", "spvc", "ctsv", "cside", "mmm") #uncomment to run all methods 
+run_method = c("celina")
 
 sim_types = list(
   c(1, 2, 3, 4, 5),

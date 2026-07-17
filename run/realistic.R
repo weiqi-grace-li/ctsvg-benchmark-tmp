@@ -11,7 +11,17 @@ ncores = 96
 set.seed(253)
 seeds = c(42, sample(1:1000, 5, replace = FALSE)) # 42, 734, 60, 67, 798, 419
 seeds = seeds[1:5]
-data_names = c("breast", "ovarian", "lymph")
+
+# data_names = c("breast", "ovarian", "lymph")
+
+# breast realistic simulation is included in the repo
+# make sure you have either generated or downloaded 
+# the other realistic simulations to run them 
+data_names = c("breast") 
+
+
+# run_method <- c("celina", "stance", "spvc", "ctsv", "cside", "mmm") # uncomment to run all methods 
+run_method = c("celina") 
 
 for (seed in seeds){
   for (data_name in data_names){
@@ -36,7 +46,7 @@ for (seed in seeds){
         save_dir  = save_dir,
         sim_obj   = processed_data_new$sim_obj,
         ncores    = ncores,
-        run_method = c("stance")
+        run_method = run_method
       )
     }
   }
