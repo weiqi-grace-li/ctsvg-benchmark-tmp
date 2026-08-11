@@ -82,6 +82,9 @@ figures/output/**
 !figures/output/fig5/.gitkeep
 
 Rplots.pdf
+DOCKER.md
+Dockerfile
+.dockerignore
 
 # Python temp files from notebook/script runs in the preprocessing pipeline
 simulators/realistic/preprocessing/**/__pycache__/
